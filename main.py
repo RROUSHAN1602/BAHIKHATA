@@ -351,35 +351,35 @@ if fl is not None:
     st.plotly_chart(fig_cumulative, use_container_width=True)
 
     # ---- Animated Metrics Card ----
-st.markdown("<h1 style='text-align: center; color: #4CAF50;'>📊 Investment & P&L Dashboard</h1>", unsafe_allow_html=True)
-
-with st.container():
-    col1, col2, col3 = st.columns(3)
-
-    # Total Investment Amount
-    total_investment_etf = pnl_summary[pnl_summary["product_type"] == "ETF"]["net_buy_amount"].sum()
-    total_investment_stock = pnl_summary[pnl_summary["product_type"] == "Stock"]["net_buy_amount"].sum()
-
-    # Net Investment
-    net_investment = total_investment_etf + total_investment_stock
-
-    # P&L Values
-    pnl_etf = pnl_summary[pnl_summary["product_type"] == "ETF"]["net_pnl"].sum()
-    pnl_stock = pnl_summary[pnl_summary["product_type"] == "Stock"]["net_pnl"].sum()
-    total_pnl = pnl_etf + pnl_stock
-
-    # ---- Display Animated Metrics ----
-    with col1:
-        st.metric("Total Investment in ETF", f"₹{total_investment_etf:,.2f}")
-        st.metric("Total Investment in Stock", f"₹{total_investment_stock:,.2f}")
-
-    with col2:
-        st.metric("Net Investment", f"₹{net_investment:,.2f}")
-        st.metric("Overall P&L", f"₹{total_pnl:,.2f}", delta=f"₹{total_pnl:,.2f}")
-
-    with col3:
-        st.metric("ETF P&L", f"₹{pnl_etf:,.2f}", delta=f"₹{pnl_etf:,.2f}")
-        st.metric("Stock P&L", f"₹{pnl_stock:,.2f}", delta=f"₹{pnl_stock:,.2f}")
+    st.markdown("<h1 style='text-align: center; color: #4CAF50;'>📊 Investment & P&L Dashboard</h1>", unsafe_allow_html=True)
+    
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+    
+        # Total Investment Amount
+        total_investment_etf = pnl_summary[pnl_summary["product_type"] == "ETF"]["net_buy_amount"].sum()
+        total_investment_stock = pnl_summary[pnl_summary["product_type"] == "Stock"]["net_buy_amount"].sum()
+    
+        # Net Investment
+        net_investment = total_investment_etf + total_investment_stock
+    
+        # P&L Values
+        pnl_etf = pnl_summary[pnl_summary["product_type"] == "ETF"]["net_pnl"].sum()
+        pnl_stock = pnl_summary[pnl_summary["product_type"] == "Stock"]["net_pnl"].sum()
+        total_pnl = pnl_etf + pnl_stock
+    
+        # ---- Display Animated Metrics ----
+        with col1:
+            st.metric("Total Investment in ETF", f"₹{total_investment_etf:,.2f}")
+            st.metric("Total Investment in Stock", f"₹{total_investment_stock:,.2f}")
+    
+        with col2:
+            st.metric("Net Investment", f"₹{net_investment:,.2f}")
+            st.metric("Overall P&L", f"₹{total_pnl:,.2f}", delta=f"₹{total_pnl:,.2f}")
+    
+        with col3:
+            st.metric("ETF P&L", f"₹{pnl_etf:,.2f}", delta=f"₹{pnl_etf:,.2f}")
+            st.metric("Stock P&L", f"₹{pnl_stock:,.2f}", delta=f"₹{pnl_stock:,.2f}")
 
 
 

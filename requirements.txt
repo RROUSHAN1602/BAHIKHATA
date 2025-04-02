@@ -1,9 +1,7 @@
- streamlit 
- pandas
- numpy 
- matplotlib
- seaborn
- plotly.express
- scipy.optimize  
- scipy.stats  
- datetime  
+streamlit
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+scipy
